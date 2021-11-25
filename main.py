@@ -17,8 +17,11 @@ for index in range(3):
     basic.pause(200)
 basic.clear_screen()
 while True:
-    for index2 in range(randint(10, 20)):
-        list2.unshift(list2.pop())
+    for index2 in range(randint(30, 50)):
+        if randint(0, 1) == 0:
+            list2.unshift(list2.pop())
+        else:
+            list2.append(list2.shift())
         basic.pause(100)
         for y3 in range(5):
             for x3 in range(5):

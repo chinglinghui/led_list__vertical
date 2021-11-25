@@ -54,8 +54,12 @@ for (let index = 0; index < 3; index++) {
 }
 basic.clearScreen()
 while (true) {
-    for (let index = 0; index < randint(10, 20); index++) {
-        list2.unshift(list2.pop())
+    for (let index = 0; index < randint(30, 50); index++) {
+        if (randint(0, 1) == 0) {
+            list2.unshift(list2.pop())
+        } else {
+            list2.push(list2.shift())
+        }
         basic.pause(100)
         for (let y3 = 0; y3 <= 4; y3++) {
             for (let x3 = 0; x3 <= 4; x3++) {
