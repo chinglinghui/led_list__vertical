@@ -1,9 +1,9 @@
-let list = [
+let list2 = [
 [
 0,
-3,
+2,
 0,
-3,
+2,
 0
 ],
 [
@@ -37,7 +37,7 @@ let list = [
 ]
 for (let y = 0; y <= 4; y++) {
     for (let x = 0; x <= 4; x++) {
-        led.plotBrightness(x, y, 51 * list[y][x])
+        led.plotBrightness(x, y, 51 * list2[y][x])
         basic.pause(100)
     }
 }
@@ -45,9 +45,9 @@ basic.pause(500)
 for (let index = 0; index < 3; index++) {
     basic.clearScreen()
     basic.pause(200)
-    for (let y = 0; y <= 4; y++) {
-        for (let x = 0; x <= 4; x++) {
-            led.plotBrightness(x, y, 51 * list[y][x])
+    for (let y2 = 0; y2 <= 4; y2++) {
+        for (let x2 = 0; x2 <= 4; x2++) {
+            led.plotBrightness(x2, y2, 51 * list2[y2][x2])
         }
     }
     basic.pause(200)
@@ -55,54 +55,49 @@ for (let index = 0; index < 3; index++) {
 basic.clearScreen()
 while (true) {
     for (let index = 0; index < randint(10, 20); index++) {
-        if (randint(0, 1) == 0) {
-            list.unshift(list.pop())
-        } else {
-            list.insertAt(4, list.shift())
-            list.shift()
-        }
+        list2.unshift(list2.pop())
         basic.pause(100)
-        for (let y = 0; y <= 4; y++) {
-            for (let x = 0; x <= 4; x++) {
-                led.plotBrightness(x, y, 51 * list[y][x])
+        for (let y3 = 0; y3 <= 4; y3++) {
+            for (let x3 = 0; x3 <= 4; x3++) {
+                led.plotBrightness(x3, y3, 51 * list2[y3][x3])
             }
         }
     }
-    list = [
+    list2 = [
     [
     randint(0, 5),
     1,
     0,
     1,
-    list[0][0]
+    list2[0][0]
     ],
     [
     randint(0, 5),
     0,
-    list[1][0],
+    list2[1][0],
     0,
-    list[1][0]
+    list2[1][0]
     ],
     [
     0,
     randint(0, 5),
-    list[2][1],
-    list[2][1],
+    list2[2][1],
+    list2[2][1],
     0
     ],
     [
     randint(0, 5),
-    list[3][0],
+    list2[3][0],
     0,
-    list[3][0],
+    list2[3][0],
     0
     ],
     [
     randint(0, 5),
-    list[4][0],
+    list2[4][0],
     randint(0, 5),
-    list[4][0],
-    list[4][2]
+    list2[4][0],
+    list2[4][2]
     ]
     ]
 }
