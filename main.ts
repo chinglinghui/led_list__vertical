@@ -105,7 +105,7 @@ while (true) {
     if (_type == 0) {
         list.push(list.shift())
     } else {
-        list.unshift(list[list.length - 1])
+        list.unshift(list.pop())
     }
     basic.pause(100)
     for (let y = 0; y <= 4; y++) {
