@@ -1,10 +1,22 @@
-input.onButtonPressed(Button.A, function () {
+function 點亮 (間隔: number) {
+    for (let y = 0; y <= 4; y++) {
+        for (let x = 0; x <= 4; x++) {
+            led.plotBrightness(x, y, 51 * list[y][x])
+            basic.pause(間隔)
+        }
+    }
+}
+// 隨機形成圖案
+// 還是有一些限制
+// 避免太過雜亂，並且保持左右對稱
+// 
+input.onButtonPressed(Button.AB, function () {
     list = [
     [
     randint(0, 5),
-    1,
+    3,
     0,
-    1,
+    3,
     list[0][0]
     ],
     [
@@ -22,10 +34,10 @@ input.onButtonPressed(Button.A, function () {
     0
     ],
     [
-    randint(0, 5),
-    list[3][0],
     0,
-    list[3][0],
+    randint(0, 5),
+    0,
+    list[3][1],
     0
     ],
     [
@@ -33,7 +45,7 @@ input.onButtonPressed(Button.A, function () {
     list[4][0],
     randint(0, 5),
     list[4][0],
-    list[4][2]
+    list[4][0]
     ]
     ]
 })
@@ -49,54 +61,45 @@ let list: number[][] = []
 list = [
 [
 0,
-2,
 0,
-2,
+5,
+0,
 0
 ],
 [
-3,
 0,
-3,
-0,
-3
+4,
+4,
+4,
+0
 ],
 [
 0,
-1,
+3,
 0,
-1,
+3,
 0
 ],
 [
 2,
-0,
 2,
 0,
+2,
 2
 ],
 [
+1,
 0,
-3,
 0,
-3,
-0
+0,
+1
 ]
 ]
-for (let y = 0; y <= 4; y++) {
-    for (let x = 0; x <= 4; x++) {
-        led.plotBrightness(x, y, 102 * list[y][x])
-        basic.pause(100)
-    }
-}
+點亮(100)
 basic.pause(500)
 for (let index = 0; index < 3; index++) {
     basic.clearScreen()
-    for (let y = 0; y <= 4; y++) {
-        for (let x = 0; x <= 4; x++) {
-            led.plotBrightness(x, y, 102 * list[y][x])
-        }
-    }
+    點亮(0)
     basic.pause(400)
 }
 basic.pause(200)
@@ -107,12 +110,8 @@ while (true) {
     } else {
         list.unshift(list.pop())
     }
-    basic.pause(100)
-    for (let y = 0; y <= 4; y++) {
-        for (let x = 0; x <= 4; x++) {
-            led.plotBrightness(x, y, 102 * list[y][x])
-        }
-    }
+    點亮(0)
+    basic.pause(50)
 }
 basic.forever(function () {
 	
